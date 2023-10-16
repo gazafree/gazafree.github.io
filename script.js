@@ -78,6 +78,128 @@ const letters_map = {
     'ة': [ '⍥', 'ö', 'ۂ' ]
   }
 
+ /*-----------------------------------*/
+  const arabicReplacements={
+    "ا":"ـ,a,ـ",
+    "ب":"ـ,b,ـ",
+    "ت":"ـ,t,ـ",
+    "ث":"ـ,th,ـ",
+    "ج":"ـ,g,ـ",
+    "ح":"ـ,h,ـ",
+    "خ":"ـ,kh,ـ",
+    "د":"ـ,d,ـ",
+    "ذ":"ـ,z,ـ",
+    "ر":"ـ,r,ـ",
+    "ز":"ـ,z,ـ",
+    "س":"ـ,s,ـ",
+    "ش":"ـ,sh,ـ",
+    "ص":"ـ,s,ـ",
+    "ض":"ـ,d,ـ",
+    "ط":"ـ,t,ـ",
+    "ظ":"ـ,z,ـ",
+    "ع":"ـ,a,ـ",
+    "غ":"ـ,gh,ـ",
+    "ف":"ـ,f,ـ",
+    "ق":"ـ,q,ـ",
+    "ك":"ـ,k,ـ",
+    "ل":"ـ,l,ـ",
+    "م":"ـ,m,ـ",
+    "ن":"ـ,n,ـ",
+    "ه":"ـ,h,ـ",
+    "و":"ـ,o,ـ",
+    "ي":"ـ,e,ـ",
+    "ى":"ـ,e,ـ",
+    "ئ":"ـ,e,ـ",
+    "ء":"ـ,a,ـ",
+    "ؤ":"ـ,o,ـ",
+    "إ":"ـ,i,ـ",
+    "أ":"ـ,a,ـ",
+    "آ":"ـ,a,ـ",
+    "ة":"ـ,h,ـ",
+    };
+function modifyWord(word, position) {
+let modifiedWord = word.split('');
+
+switch(position) {
+    case 'start':
+    if (arabicReplacements[modifiedWord[0]]) {
+        modifiedWord[0] = arabicReplacements[modifiedWord[0]];
+    }
+    break;
+    case 'middle':
+    let middleIndex = Math.floor(word.length / 2);
+    if (arabicReplacements[modifiedWord[middleIndex]]) {
+        modifiedWord[middleIndex] = arabicReplacements[modifiedWord[middleIndex]];
+    }
+    break;
+    case 'end':
+    if (arabicReplacements[modifiedWord[modifiedWord.length - 1]]) {
+        modifiedWord[modifiedWord.length - 1] = arabicReplacements[modifiedWord[modifiedWord.length - 1]];
+    }
+    break;
+    default:
+    console.error("Invalid position specified");
+}
+
+return modifiedWord.join('');
+}
+
+function modifyWordStart(word) {
+return modifyWord(word,'start');
+}
+function modifyWordMid(word) {
+return modifyWord(word,'middle');
+}
+function modifyWordEnd(word) {
+return modifyWord(word,'end');
+}
+
+/*-----------------------------------*/
+function getRandomCharacterSet() {
+    const characterSets = ["+++++++++++++", "+_+_+_+_+_+_+", "+٠+٠+٠+٠+٠+٠++" , "+ء+ء+ء+ء+ء+ء"];
+    const randomIndex = Math.floor(Math.random() * characterSets.length);
+    return characterSets[randomIndex];
+  }
+  
+  function generateRandomString(length, charset) {
+    let randomString = '';
+  
+    for (let i = 0; i < length; i++) {
+      const randomIndex = Math.floor(Math.random() * charset.length);
+      randomString += charset.charAt(randomIndex);
+    }
+  
+    return randomString;
+  }
+  
+  function modifyWordRandom(word) {
+    let charset = getRandomCharacterSet();
+    // Check if the word has less than 3 characters; if so, no modification is needed
+    if (word.length < 3) {
+      return word;
+    }
+  
+    // Extract the first and last characters
+    const firstChar = word.charAt(0);
+    const lastChar = word.charAt(word.length - 1);
+  
+    // Modify characters in the middle by appending random strings
+    let middleChars = '';
+  
+    for (let i = 1; i < word.length - 1; i++) {
+      const originalChar = word.charAt(i);
+      const randomLength = (Math.floor(Math.random() * 5) + 1)%4; // Generate a random length (1 to 5 characters)
+      const randomString = "ــ"+generateRandomString(randomLength, charset)+"ـ";
+      middleChars += originalChar + randomString;
+    }
+  
+    // Combine the first, modified middle, and last characters
+    const encodedWord = firstChar + middleChars + lastChar;
+  
+    return encodedWord;
+  }
+  
+/*-----------------------------------*/
 var wordsDict = {};
 let original_text = '';
 
@@ -138,7 +260,7 @@ function convertText(){
         
         let text_to_alter = original_text.replace(/\n/g, ' <br/> ').split(/\s/);
 
-        const encodings = [flip, addNull, dotless];
+        const encodings = [flip, addNull, dotless, modifyWordStart, modifyWordMid, modifyWordEnd, modifyWordRandom];
         for (let encoding of encodings) {
             let newWords = [];
             for (word of text_to_alter) {
@@ -234,6 +356,7 @@ function selectKeywords(){
     
     for(var btn of btns){
         if(keywords.includes(btn.innerHTML) || localStorage[btn.innerHTML] == 'true'){
+            console.log("__key__",btn.innerHTML ,keywords.includes(btn.innerHTML),  localStorage[btn.innerHTML])
             btn.classList.add("btn-dark")
             wordsDict[btn.innerHTML] = 1;
         }
@@ -243,6 +366,7 @@ function selectKeywords(){
 function selectAll(){
     var btns = document.querySelectorAll('.wordbtn');
     for(let btn of btns){
+        console.log("__all__", btn.innerHTML , localStorage[btn.innerHTML])
         wordsDict[btn.innerHTML] = 1
         btn.classList.add("btn-dark")
         localStorage[btn.innerHTML] = 'true'

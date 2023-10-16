@@ -397,15 +397,3 @@ function copyDecoration(box){
         button: "تم",
       });
 }
-
-/*
-window.onload = (event) => {
-    var span = document.createElement("span")
-    span.innerHTML = `بإمكانك الأن إضافة موقعنا إلي شاشة هاتفك الرئيسية<br> من خلال الضغط علي لائحة الإعدادات في أعلي يمين الشاشة و إختيار <br> "أضف إلي الشاشة الرئيسية" / "Add to Home Screen"`
-    swal({
-        title: "أضف الموقع الي هاتفك",
-        icon: "/images/instruction.gif",
-        button: "تم",
-      });
-  };
-  */

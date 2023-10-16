@@ -1,6 +1,6 @@
 {
-    "short_name": "تجاوز - Tajawz",
-    "name": "تجاوز - Tajawz",
+    "short_name": "ادعم - Ed3am",
+    "name": "ادعم - Ed3am",
     "icons": [
       {
         "src": "/images/size-192.png",
@@ -16,7 +16,7 @@
       }
     ],
     "start_url": "/index.html",
-    "background_color": "#821028",
+    "background_color": "#82c342",
     "display": "standalone",
-    "theme_color": "#821028"
+    "theme_color": "#82c342"
   }

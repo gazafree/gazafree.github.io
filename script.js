@@ -200,6 +200,72 @@ function getRandomCharacterSet() {
   }
   
 /*-----------------------------------*/
+
+const englishReplacements = {
+    "A": ["à", "á", "â", "ã", "å", "ă", "ā"],
+    "B": ["ß"],
+    "C": ["ç", "ć", "č", "ĉ"],
+    "D": ["ð"],
+    "E": ["é", "è", "ê", "ë", "ę", "ě", "ė"],
+    "F": ["φ"],
+    "G": ["ğ"],
+    "H": ["ĥ"],
+    "I": ["í", "ì", "î", "ï", "į"],
+    "J": ["ĵ"],
+    "K": ["κ"],
+    "L": ["ł"],
+    "M": ["м"],
+    "N": ["ñ", "ń", "ň"],
+    "O": ["ø", "ö", "ô", "õ", "ő", "ō"],
+    "P": ["þ"],
+    "Q": ["Ϙ"],
+    "R": ["ř", "ŕ"],
+    "S": ["ş", "š"],
+    "T": ["ț", "ť"],
+    "U": ["ü", "û", "ů", "ū", "ű"],
+    "V": ["υ"],
+    "W": ["ŵ", "ů", "ŭ"],
+    "X": ["χ"],
+    "Y": ["ý", "ÿ"],
+    "Z": ["ž", "ż", "ź"],
+    "a": ["à", "á", "â", "ã", "å", "ă", "ā"],
+    "b": ["ß"],
+    "c": ["ç", "ć", "č", "ĉ"],
+    "d": ["ð"],
+    "e": ["é", "è", "ê", "ë", "ę", "ě", "ė"],
+    "f": ["φ"],
+    "g": ["ğ"],
+    "h": ["ĥ"],
+    "i": ["í", "ì", "î", "ï", "į"],
+    "j": ["ĵ"],
+    "k": ["κ"],
+    "l": ["ł"],
+    "m": ["м"],
+    "n": ["ñ", "ń", "ň"],
+    "o": ["ø", "ö", "ô", "õ", "ő", "ō"],
+    "p": ["þ"],
+    "q": ["Ϙ"],
+    "r": ["ř", "ŕ"],
+    "s": ["ş", "š"],
+    "t": ["ț", "ť"],
+    "u": ["ü", "û", "ů", "ū", "ű"],
+    "v": ["υ"],
+    "w": ["ŵ"],
+    "x": ["χ"],
+    "y": ["ý", "ÿ"],
+    "z": ["ž", "ż", "ź"]
+        };
+function modifyEnglishWord (word) {
+    let modifiedWord = word.split('');
+    for (let i = 0; i < word.length; i++) {
+        let char = word[i];
+        if (englishReplacements[char]) {
+        modifiedWord[i] = englishReplacements[char][Math.floor(Math.random() * englishReplacements[char].length)];
+        }
+    }
+    return modifiedWord.join('');
+}
+/*-----------------------------------*/
 var wordsDict = {};
 let original_text = '';
 
@@ -255,6 +321,9 @@ function selectWord(btn){
     }
 }
 
+function isPotentialEnglishWord(word) {
+    return /^[a-zA-Z]+$/.test(word);
+}
 function convertText(){
     if(Object.values(wordsDict).indexOf(1) > -1){
         var newTextBox = document.getElementById('newTextBox');
@@ -267,7 +336,12 @@ function convertText(){
             let newWords = [];
             for (word of text_to_alter) {
                 if (word.length > 1 && wordsDict[word]){
-                    newWords.push(encoding(word));
+                    if (isPotentialEnglishWord(word)) {
+                        //The only supported english mode is modifyEnglishWord
+                        newWords.push(modifyEnglishWord(word));
+                    }else{
+                        newWords.push(encoding(word));
+                    }
                 } else {
                     newWords.push(word);
                 }

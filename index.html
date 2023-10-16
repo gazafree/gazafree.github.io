@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" type="image/x-icon" href="images/logo_transparent.png" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+<link rel="preconnect" href="https://fonts.gstatic.com" />
+<link href="https://fonts.googleapis.com/css2?family=Cairo&amp;display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css?v=0.4" />
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="/images/size-192.png">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<meta property="og:type" content="website" />
+<meta name="theme-color" content="#821028" />
+<meta property="og:site_name" content="تجاوز | لتنجنب الحظر علي مواقع التواصل الإجتماعي" />
+<meta property="og:locale" content="ar_AR" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:url" content="https://tajawz.com" />
+<meta property="og:title" content="تجاوز | لتنجنب الحظر علي مواقع التواصل الإجتماعي" />
+<meta property="og:description" content="أداة لتغيير من شكل النصوص وتشفيرها بحيث تتخطي الحجب والحظر علي مواقع التواصل الإجتماعي المختلفة" />
+<meta property="og:image" content="https://tajawz.com/images/cover.png" />
+<meta property="og:image:width" content="256" />
+<meta property="og:image:height" content="256" />
+<title>تجاوز - Tajawz</title>
+</head>
+<body>
+<div class="container">
+<div class="col-sm main-section">
+<h3><img class="logo m-2" src="images/logo.png" alt="logo" /></h3>
+
+<h3 class="my-3"> أدخل النص الخاص بك</h3>
+<textarea id="userText" class="form-control textarea rounded" dir="rtl" placeholder="اكتب هنا..." rows="8"></textarea>
+<button id="submit-text" type="button" class="btn convert-button btn-dark btn-lg btn-block" onclick="formatWords()">حول النص</button>
+</div>
+<div id="modify-section" style="display: none;">
+<div class="extracted-words-container" id="word-choice-container">
+<h3 class="py-5">إضغط علي الكلمات التي تود تشفيرها</h3>
+<div id="wordsBox" class="bg-light rounded p-2 text-right" dir="rtl"></div>
+</div>
+<div id="ctrl-btns">
+<div class="row my-3">
+<button type="button" class="col-sm btn btn-dark btn-lg keywords m-3" onclick="selectKeywords()">إختر الكلمات الشائعة</button>
+<button type="button" class="col-sm btn btn-dark btn-lg keywords m-3" onclick="selectAll()">تحديد الكل</button>
+<button id="convert" type="button" class="col-sm btn btn-dark btn-lg convert m-3" onclick="convertText()">قم بالتشفير</button>
+</div>
+</div>
+</div>
+<div class="result-section" id="result-section" style="display: none;">
+<h3>اضغط للنسخ</h3>
+<div id="newTextBox" class="text-right">
+</div>
+</div>
+<footer class="text-center small m-5" dir="rtl">
+للتواصل <a href="/cdn-cgi/l/email-protection#b5c1d4d2d4c2cff5c5c7dac1dadbd8d4dcd99bd6dad8" class="text-white"><span class="__cf_email__" data-cfemail="334752545244497343415c475c5d5e525a5f1d505c5e">[email&#160;protected]</span></a>
+</footer>
+<script data-cfasync="false" src="email-decode.min.js"></script><script src="keywords.js?v=0.4"></script>
+<script src="script.js?v=0.41"></script>
+<script src="mobile-version.js?v=0.4" async></script>
+</div>
+</body>
+</html>

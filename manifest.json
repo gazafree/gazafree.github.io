@@ -1,0 +1,22 @@
+{
+    "short_name": "تجاوز - Tajawz",
+    "name": "تجاوز - Tajawz",
+    "icons": [
+      {
+        "src": "/images/size-192.png",
+        "type": "image/png",
+        "sizes": "192x192",
+        "purpose": "any maskable"
+      },
+      {
+        "src": "/images/size-512.png",
+        "type": "image/png",
+        "sizes": "512x512",
+        "purpose": "any maskable"
+      }
+    ],
+    "start_url": "/index.html",
+    "background_color": "#821028",
+    "display": "standalone",
+    "theme_color": "#821028"
+  }

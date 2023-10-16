@@ -1,0 +1,169 @@
+* {
+    padding: 0;
+    font-size:120%;
+    font-family: 'Cairo', serif;
+}
+
+body{
+    background-color: #821028;
+    color: white;
+}
+
+.main-section {
+    display: grid;
+    row-gap: 15px;
+    padding-top: 30px;
+    margin-bottom: 10px;
+}
+
+.textarea {
+    font-size: 100%;
+    width:100%;
+    background-color:white;
+}
+
+.extracted-words-container {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 8vh;
+}
+
+
+h3, h6{
+    margin: auto;
+    display: flex;
+    align-content:center;
+    font-weight: 800;
+}
+
+h6{
+    font-weight: 400;
+}
+
+a{
+    font-weight: 600;
+    margin-right: 5px;
+    color: rgb(255, 171, 115);
+    text-decoration: underline;
+    text-decoration-style: dotted;
+
+}
+
+a:hover{
+    color: white;
+}
+
+img{
+    width: 390px;
+    height: auto;
+}
+
+
+@media screen and (max-width: 767px) {
+    img{
+        width: 100px;
+        height: auto;
+        max-height: 100px;
+    }
+
+    *, h3, #word-btn {
+        font-size: 16px;
+    }
+    .textarea {
+        width: auto;
+    }
+
+    button {
+        margin: 0 auto;
+    }
+
+    .extracted-words-container {
+        width: 90%;
+    }
+
+    #ctrl-btns{
+        display: grid;
+        gap: 10px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .swal-icon img{
+        width: 90% !important;
+    }
+
+    .swal-icon--custom{
+        width: 90% !important;
+    }
+}
+
+#ctrl-btns{
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.ctrl-btn{
+    display: inline-block;
+    width: max-content;
+    background-color: #23272b;
+}
+
+.ctrl-btn:hover{
+    color: white;
+}
+
+.ctrl-btn.clear:hover{
+    background-color: #6e7e57;
+}
+
+.ctrl-btn.keywords:hover{
+    background-color: #aa203b;
+}
+.ctrl-btn.convert:hover{
+    background-color: rgb(70, 70, 70);
+}
+
+
+.ctrl-btn:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+#newTextBox{
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 7vh;
+}
+
+
+.decoratedText{
+    padding: 10px;
+    margin-bottom: 5vh;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-family: 'Times New Roman';
+    background-color:#23272b;
+    border-radius: 4px;
+    
+}
+
+.result-section{
+    margin-top: 10vh;
+}
+
+#notice{
+    text-align: center;
+}
+
+.swal-text {
+    text-align: center !important;
+}
+
+.swal-icon img{
+    width: 90% !important;
+}
+
+.swal-icon--custom{
+    width: 90% !important;
+}

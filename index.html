@@ -45,11 +45,14 @@
 <div id="wordsBox" class="bg-light rounded p-2 text-right" dir="rtl"></div>
 </div>
 <div id="ctrl-btns">
-<div class="row my-3">
-<button type="button" class="col-sm btn btn-dark btn-lg keywords m-3" onclick="selectKeywords()">إختر الكلمات الشائعة</button>
-<button type="button" class="col-sm btn btn-dark btn-lg keywords m-3" onclick="selectAll()">تحديد الكل</button>
-<button id="convert" type="button" class="col-sm btn btn-dark btn-lg convert m-3" onclick="convertText()">قم بالتشفير</button>
-</div>
+    <div class="row my-3">
+        <button type="button" class="col-sm btn btn-dark btn-lg keywords m-3" onclick="selectKeywords()">أضف الكلمات الشائعة للتحديد</button>
+        <button type="button" class="col-sm btn btn-dark btn-lg keywords m-3" onclick="deselectAll()">إلغاء التحديد</button>
+        <button type="button" class="col-sm btn btn-dark btn-lg keywords m-3" onclick="selectAll()">تحديد الكل</button>
+    </div>
+    <div class="row my-3">
+        <button id="convert" type="button" class="col-sm btn btn-dark btn-lg convert m-3" onclick="convertText()">قم بالتشفير</button>
+    </div>
 </div>
 </div>
 <div class="result-section" id="result-section" style="display: none;">
@@ -58,7 +61,10 @@
 </div>
 </div>
 <footer class="text-center small m-5" dir="rtl">
-للتواصل <a href="/cdn-cgi/l/email-protection#0e687c6b6b696f746f3c3e3c3d4e69636f6762206d6163" class="text-white"><span class="__cf_email__" data-cfemail="eb86998a868a8f8a85c588848686ab83849f868a8287c5888486">[email&#160;protected]</span></a>
+للتواصل و اقتراح مميزات جديدة أو كلمات مفتاحية <a href="/cdn-cgi/l/email-protection#0e687c6b6b696f746f3c3e3c3d4e69636f6762206d6163" class="text-white"><span class="__cf_email__" data-cfemail="0e687c6b6b696f746f3c3e3c3d4e69636f6762206d6163">[email&#160;protected]</span></a>
+<p class="mb-0">
+    <a href="https://github.com/gazafree/gazafree.github.io" class="btn btn-info" target="_blank">للمشاركة في التطوير</a>
+</p>
 </footer>
 <script data-cfasync="false" src="email-decode.min.js"></script><script src="keywords.js?v=0.4"></script>
 <script src="script.js?v=0.41"></script>

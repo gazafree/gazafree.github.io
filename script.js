@@ -235,10 +235,12 @@ function formatWords (){
 
 function selectWord(btn){
     btns = document.querySelectorAll('.wordbtn')
+    console.log("selectWord: ", btn.innerHTML)
     if(btn.classList.contains("btn-dark")){
         wordsDict[btn.innerHTML] = 0;
         for(var button of btns){
             if(button.innerHTML == btn.innerHTML){
+                localStorage[btn.innerHTML] = 'false'
                 button.classList.remove("btn-dark")
             }
         }
@@ -370,6 +372,14 @@ function selectAll(){
         wordsDict[btn.innerHTML] = 1
         btn.classList.add("btn-dark")
         localStorage[btn.innerHTML] = 'true'
+    }
+}
+function deselectAll(){
+    var btns = document.querySelectorAll('.wordbtn');
+    for(let btn of btns){
+        wordsDict[btn.innerHTML] = 0
+        btn.classList.remove("btn-dark")
+        localStorage[btn.innerHTML] = 'false'
     }
 }
 

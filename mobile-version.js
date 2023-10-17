@@ -48,7 +48,7 @@ const changeVisibility = (elements, display) => {
 }
 
 const appendGoBackButton = (step, container) => {
-    const button = `<button type="button" id="step-${step}" class="col-sm btn btn-dark btn-lg" onclick="goback(this)">العودة</button> `;
+    const button = `<button type="button" id="step-${step}" class="col-sm btn btn-dark btn-lg" onclick="goback(this)">العودة لتعديل النص</button> `;
     container.append(button);
 }
 
@@ -62,7 +62,7 @@ const addOnClick = ({ sections_to_hide, section_to_display, append_to, children_
     changeVisibility([section_to_display[0]], 'grid');
     const children_to_check = append_to || section_to_display;
 
-    if (children_to_check[0].children.length !== children_length) {
+    if (children_to_check[0].children.length === children_length) {
         appendGoBackButton(step, children_to_check);
     }
 

@@ -1,4 +1,9 @@
-import {flip, addNull, dotless, modifyWordStart, modifyWordMid, modifyWordEnd, modifyWordRandom,modifyEnglishWord} from './words_algorithms_module.js';
+import { flip } from './algos/flip_algo.js';
+import {addNull} from './algos/add_null_algo.js';
+import {dotless} from './algos/dotless_algo.js';
+import {modifyWordStart, modifyWordMid, modifyWordEnd} from './algos/simple_algo.js';
+import {modifyWordRandom} from './algos/random_algo.js';
+import {modifyEnglishWord} from './algos/english_algo.js';
 
 var wordsDict = {};
 let original_text = '';
@@ -113,7 +118,6 @@ function convertText(){
           });
     }
 }
-
 
 function selectKeywords(){
     var btns = document.querySelectorAll('.wordbtn')

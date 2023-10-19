@@ -1,7 +1,6 @@
 import {alone_letters, skip_chars, letters_map} from "./letters_tables.js";
 import {addNull} from './add_null_algo.js';
 
-
 let Arabic_dotless = {
     ا: "ا",
     أ: "ا",

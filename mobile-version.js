@@ -1,6 +1,8 @@
+import {formatWords ,convertText, selectAll} from './ui_module.js';
+
 $(document).ready(() => {
     if (window.innerWidth <= 767) {
-        buttons = {
+        var buttons = {
             submit_text: {
                 sections_to_hide: [$('.main-section')[0]],
                 section_to_display: $('#modify-section'),
@@ -48,7 +50,15 @@ const changeVisibility = (elements, display) => {
 }
 
 const appendGoBackButton = (step, container) => {
-    const button = `<button type="button" id="step-${step}" class="col-sm btn btn-dark btn-lg" onclick="goback(this)">العودة لتعديل النص</button> `;
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.id = "step-" +step;
+    button.className = 'col-sm btn btn-dark btn-lg';
+    button.textContent = 'العودة لتعديل النص';
+    button.addEventListener('click', function() {
+        goback(button);
+    });
+
     container.append(button);
 }
 

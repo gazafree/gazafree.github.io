@@ -37,7 +37,7 @@
 
 <h3 class="my-3"> أدخل النص المحجوب الذي تود تغييره</h3>
 <textarea id="userText" class="form-control textarea rounded" dir="rtl" placeholder="اكتب هنا..." rows="8"></textarea>
-<button id="submit-text" type="button" class="btn convert-button btn-dark btn-lg btn-block" onclick="formatWords()">حول النص</button>
+<button id="submit-text" type="button" class="btn convert-button btn-dark btn-lg btn-block">حول النص</button>
 </div>
 <div id="modify-section" style="display: none;">
 <div class="extracted-words-container" id="word-choice-container">
@@ -46,12 +46,12 @@
 </div>
 <div id="ctrl-btns">
     <div class="row my-3">
-        <button type="button" class="col-sm btn btn-dark btn-lg keywords m-3" onclick="selectKeywords()">أضف الكلمات الشائعة للتحديد</button>
-        <button type="button" class="col-sm btn btn-dark btn-lg keywords m-3" onclick="deselectAll()">إلغاء التحديد</button>
-        <button type="button" class="col-sm btn btn-dark btn-lg keywords m-3" onclick="selectAll()">تحديد الكل</button>
+        <button id="select-keywords" type="button" class="col-sm btn btn-dark btn-lg keywords m-3">أضف الكلمات الشائعة للتحديد</button>
+        <button id="deselect-all" type="button" class="col-sm btn btn-dark btn-lg keywords m-3">إلغاء التحديد</button>
+        <button id="select-all" type="button" class="col-sm btn btn-dark btn-lg keywords m-3">تحديد الكل</button>
     </div>
     <div class="row my-3">
-        <button id="convert" type="button" class="col-sm btn btn-dark btn-lg convert m-3" onclick="convertText()">قم بالتشفير</button>
+        <button id="convert" type="button" class="col-sm btn btn-dark btn-lg convert m-3">قم بالتشفير</button>
     </div>
 </div>
 </div>
@@ -67,8 +67,9 @@
 </p>
 </footer>
 <script data-cfasync="false" src="email-decode.min.js"></script><script src="keywords.js?v=0.4"></script>
-<script src="script.js?v=0.41"></script>
-<script src="mobile-version.js?v=0.4" async></script>
+<script type="module" src="script.js"></script>
+
+<script type="module" src="mobile-version.js" async></script>
 </div>
 </body>
 </html>

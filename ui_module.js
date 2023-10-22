@@ -4,6 +4,7 @@ import {dotless} from './algos/dotless_algo.js';
 import {modifyWordStart, modifyWordMid, modifyWordEnd} from './algos/simple_algo.js';
 import {modifyWordRandom} from './algos/random_algo.js';
 import {modifyEnglishWord} from './algos/english_algo.js';
+import {replaceMiddleLetter} from './algos/advanced_algo.js'; // new
 
 var wordsDict = {};
 let original_text = '';
@@ -78,7 +79,7 @@ function convertText(){
         
         let text_to_alter = original_text.replace(/\n/g, ' <br/> ').split(/\s/);
 
-        const encodings = [flip, addNull, dotless, modifyWordStart, modifyWordMid, modifyWordEnd, modifyWordRandom];
+        const encodings = [flip, addNull, dotless, modifyWordStart, modifyWordMid, modifyWordEnd, modifyWordRandom, replaceMiddleLetter];
         for (let encoding of encodings) {
             let newWords = [];
             for (var word of text_to_alter) {
